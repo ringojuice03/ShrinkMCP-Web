@@ -1,20 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4CAF50;
+  --color-primary-dark: #45a049;
+  --color-primary-light: #e8f5e9;
+
+  --color-background: #f5f5f5;
+  --color-surface: white;
+
+  --color-text: #333;
+  --color-text-dark: #1a1a1a;
+  --color-text-light: #666;
+  --color-text-muted: #999;
+
+  --color-border: #e0e0e0;
+
+  --color-error: #d32f2f;
+  --color-error-light: #ffebee;
+
+  --color-success: #2e7d32;
+  --color-success-light: #e8f5e9;
+
+  --font-serif: "Outfit", sans-serif;
+  --font-sans: "Outfit", sans-serif;
+
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-panel: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  --radius-large: 12px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 :root {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "Outfit", sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--color-background);
+  color: var(--color-text);
   min-height: 100vh;
 }
 
@@ -38,7 +71,7 @@ body {
 }
 
 .main-title {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: var(--font-serif);
   font-size: 48px;
   font-weight: 400;
   color: #1a1a1a;
@@ -138,7 +171,7 @@ body {
   font-size: 32px;
   font-weight: 600;
   color: #1a1a1a;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   margin: 0;
 }
 
@@ -919,6 +952,92 @@ body {
   font-size: 14px;
   color: #333;
   line-height: 1.5;
+}
+
+@media (max-width: 968px) {
+  .predefined-questions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .question-button {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Global Chat Input Styles */
+.global-chat-input-container {
+  margin-top: 40px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.chat-input-content {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 12px;
+}
+
+.chat-input-main-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sparkles-icon {
+  color: #93a1b1;
+}
+
+.global-chat-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #1f2937;
+  background: transparent;
+  padding: 12px 0;
+}
+
+.global-chat-input::placeholder {
+  color: #9ba3af;
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background-color: #030712;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.send-btn:hover:not(:disabled) {
+  background-color: #111827;
+}
+
+.send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Remove individual panel input styles */
+.test-input-container {
+  display: none !important;
 }
 
 @media (max-width: 968px) {
